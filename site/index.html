@@ -64,26 +64,6 @@
       padding: 0;
       font-size: inherit;
     }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin: 32px 0;
-    }
-    .feature-item h4 {
-      font-family: var(--mono);
-      font-size: 13px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin: 0 0 6px;
-    }
-    .feature-item p {
-      font-size: 15px;
-      color: var(--muted);
-      margin: 0;
-      line-height: 1.5;
-    }
     .guide-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -160,7 +140,6 @@
       margin-top: 4px;
     }
     @media (max-width: 768px) {
-      .feature-grid { grid-template-columns: 1fr; }
       .guide-grid { grid-template-columns: 1fr; }
       .stats-row { flex-wrap: wrap; gap: 24px; }
     }
@@ -422,42 +401,34 @@ headers = {<span class="aip-code__str">"X-AIP-Token"</span>: token}</code></pre>
         </div>
       </div>
     </section>
-    <hr class="divider" />
-
-    <!-- What you get -->
-    <div class="section">
+    <section class="aip-section aip-concepts">
       <div class="wrap">
-        <p class="section-label">What you get</p>
-
-        <div class="feature-grid">
-          <div class="feature-item">
-            <h4>Cryptographic identity</h4>
+        <p class="aip-section__label">Four pillars</p>
+        <div class="aip-concepts__grid">
+          <article class="aip-concept aip-concept--identity">
+            <img class="aip-concept__icon" src="/aip/img/concept-identity.svg" alt="" onerror="this.style.display='none'" />
+            <h3 class="aip-concept__title">Identity</h3>
             <p>Every agent gets an Ed25519 keypair and an AIP identifier. DNS-based or self-certifying. No certificate authority needed.</p>
-          </div>
-          <div class="feature-item">
-            <h4>Scoped delegation</h4>
-            <p>When agents delegate, each hop can only narrow scope, never widen. Budget, tool access, and depth limits attenuate cryptographically.</p>
-          </div>
-          <div class="feature-item">
-            <h4>MCP and A2A auth</h4>
-            <p>Signed <code>X-AIP-Token</code> headers for MCP. Identity fields and token metadata for A2A. HTTP binding for everything else.</p>
-          </div>
-          <div class="feature-item">
-            <h4>Audit trail</h4>
-            <p>Every token records the full delegation chain. Who authorized what, through which agents, with what scope. Structured JSON logging.</p>
-          </div>
-          <div class="feature-item">
-            <h4>Two token modes</h4>
-            <p>Compact (JWT + EdDSA) for single-hop. Chained (Biscuit + Datalog) for multi-agent delegation. Start simple, upgrade when you need it.</p>
-          </div>
-          <div class="feature-item">
-            <h4>Policy profiles</h4>
-            <p>Simple (auto-generated), Standard (curated Datalog), Advanced (full Datalog). 90% of use cases never write Datalog by hand.</p>
-          </div>
+          </article>
+          <article class="aip-concept aip-concept--delegation">
+            <img class="aip-concept__icon" src="/aip/img/concept-delegation.svg" alt="" onerror="this.style.display='none'" />
+            <h3 class="aip-concept__title">Delegation</h3>
+            <p>Append-only Biscuit chain. Bounded depth. Every hop signs its delegation and records a mandatory context string.</p>
+          </article>
+          <article class="aip-concept aip-concept--scope">
+            <img class="aip-concept__icon" src="/aip/img/concept-scope.svg" alt="" onerror="this.style.display='none'" />
+            <h3 class="aip-concept__title">Scope &amp; Budget</h3>
+            <p>Datalog policies in three profiles (Simple / Standard / Advanced). Holder-side attenuation: scope only narrows, never widens.</p>
+          </article>
+          <article class="aip-concept aip-concept--audit">
+            <img class="aip-concept__icon" src="/aip/img/concept-audit.svg" alt="" onerror="this.style.display='none'" />
+            <h3 class="aip-concept__title">Audit &amp; Provenance</h3>
+            <p>Completion blocks record outcome, cost, and verification status. The completed token answers who, through whom, with what scope, and what happened.</p>
+          </article>
         </div>
+        <p class="aip-concepts__also">Also: two token modes (compact / chained), MCP and A2A protocol bindings, structured error codes, key rotation via overlapping validity windows.</p>
       </div>
-    </div>
-
+    </section>
     <hr class="divider" />
 
     <!-- Delegation flow -->

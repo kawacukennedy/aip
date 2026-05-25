@@ -894,3 +894,61 @@ code {
 .aip-code code { background: none; color: inherit; padding: 0; font-size: inherit; }
 .aip-code__cmt { color: #8a8a85; }
 .aip-code__str { color: #d3a47a; }
+
+/* ──── Concepts ───────────────────────────────────────────────────────── */
+.aip-concepts__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 24px 0 32px;
+}
+
+.aip-concept {
+  border: 1px solid var(--border);
+  border-top-width: 4px;
+  border-radius: 4px;
+  padding: 24px 20px;
+  background: var(--bg);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.aip-concept--identity   { border-top-color: var(--aip-identity); }
+.aip-concept--delegation { border-top-color: var(--aip-delegation); }
+.aip-concept--scope      { border-top-color: var(--aip-scope); }
+.aip-concept--audit      { border-top-color: var(--aip-verify); }
+
+.aip-concept__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.aip-concept__title {
+  font-family: var(--heading);
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.aip-concept p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+
+.aip-concepts__also {
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 700px;
+}
+
+@media (max-width: 1000px) {
+  .aip-concepts__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .aip-concepts__grid { grid-template-columns: 1fr; }
+}
