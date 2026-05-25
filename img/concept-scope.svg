@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80' stroke='#9b4a3f' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+  <rect x='18' y='18' width='44' height='44' rx='4'/>
+  <path d='M28 18v44'/>
+  <path d='M52 18v44'/>
+  <path d='M18 30h44'/>
+  <path d='M18 50h44'/>
+  <circle cx='40' cy='40' r='9'/>
+  <path d='M40 26v6'/>
+  <path d='M40 48v6'/>
+  <path d='M26 40h6'/>
+  <path d='M48 40h6'/>
+</svg>
