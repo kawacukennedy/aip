@@ -952,3 +952,25 @@ code {
 @media (max-width: 600px) {
   .aip-concepts__grid { grid-template-columns: 1fr; }
 }
+
+/* ──── How delegation works ───────────────────────────────────────────── */
+.aip-delegate__lede {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 70ch;
+  margin-bottom: 24px;
+}
+.aip-delegate__lede em {
+  font-style: normal;
+  color: var(--aip-scope);
+  font-weight: 500;
+}
+.aip-delegate__svg {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .aip-delegate__svg { overflow-x: auto; }
+}
