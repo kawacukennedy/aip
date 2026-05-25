@@ -566,3 +566,115 @@ code {
   --aip-slate:           #1a1a1a;
   --aip-slate-2:         #2a2a28;
 }
+
+/* ──── Hero ──────────────────────────────────────────────────────────── */
+.aip-hero {
+  padding: 96px 0 64px;
+}
+
+.aip-hero__grid {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 56px;
+  align-items: center;
+}
+
+.aip-hero__pre {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--aip-identity);
+  margin-bottom: 16px;
+}
+
+.aip-hero__pre-sep {
+  color: var(--muted);
+  margin: 0 4px;
+}
+
+.aip-hero__title {
+  font-family: var(--heading);
+  font-size: clamp(40px, 5.5vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -1px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.aip-hero__title-accent {
+  border-bottom: 2px solid var(--aip-identity);
+  padding-bottom: 0.08em;
+}
+
+.aip-hero__sub {
+  margin-top: 24px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+.aip-hero__ctas {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.aip-btn {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+  line-height: 1.2;
+  border: 1px solid var(--aip-identity);
+}
+
+.aip-btn--primary {
+  background: var(--aip-identity);
+  color: var(--bg);
+}
+
+.aip-btn--primary:hover { background: #823c33; border-color: #823c33; opacity: 1; }
+
+.aip-btn--ghost {
+  background: transparent;
+  color: var(--aip-identity);
+}
+
+.aip-btn--ghost:hover { background: var(--aip-identity-tint); opacity: 1; }
+
+.aip-hero__right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aip-hero__svg-placeholder {
+  height: 300px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.aip-hero__caption {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.aip-hero__caption-comment { color: var(--aip-delegation); }
+
+@media (max-width: 900px) {
+  .aip-hero__grid { grid-template-columns: 1fr; gap: 32px; }
+  .aip-hero__title { font-size: clamp(36px, 8vw, 48px); }
+}
