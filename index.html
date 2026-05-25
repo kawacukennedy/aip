@@ -327,16 +327,61 @@
     </section>
 
     <hr class="divider" />
-
-    <!-- The problem -->
-    <div class="section">
+    <section class="aip-section aip-authgap">
       <div class="wrap">
-        <p class="section-label">The problem</p>
-        <p style="font-size: 17px; line-height: 1.7; max-width: 640px;">A scan of ~2,000 MCP servers found zero authentication. MCP recently added OAuth 2.1, but it only covers single-hop auth. When an orchestrator delegates to a specialist that calls a tool, the delegation chain disappears. Nobody knows who authorized what.</p>
-        <p style="font-size: 17px; line-height: 1.7; max-width: 640px;">A2A is worse: agent identities are self-declared strings with no cryptographic attestation. Any agent can claim to be any other agent.</p>
-      </div>
-    </div>
+        <p class="aip-section__label">The auth gap</p>
+        <div class="aip-authgap__grid">
+          <div class="aip-authgap__copy">
+            <p>A scan of approximately 2,000 MCP servers found zero authentication. MCP recently added OAuth 2.1, but it covers only single-hop auth: when an orchestrator delegates to a specialist that calls a tool, the delegation chain disappears.</p>
+            <p>A2A is worse. Agent identities are self-declared strings in <code>aip_identity</code> fields with no cryptographic attestation. Any agent can claim to be any other agent.</p>
+          </div>
+          <div class="aip-authgap__svg-wrap" aria-hidden="true">
+            <svg class="aip-authgap__svg" viewBox="0 0 280 220" role="img" aria-labelledby="authgap-title authgap-desc">
+              <title id="authgap-title">Auth gap before and after AIP</title>
+              <desc id="authgap-desc">Top half labeled TODAY shows three grey agents with dashed arrows and a red X on the tool. Bottom half labeled WITH AIP shows the same three agents now solid brick with signed arrows and a green check on the tool.</desc>
 
+              <!-- TODAY -->
+              <text x="0" y="14" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)" letter-spacing="1.2">TODAY</text>
+              <g transform="translate(0,28)">
+                <rect x="0"   y="10" width="60" height="32" rx="4" fill="none" stroke="var(--light)" stroke-width="1"/>
+                <text x="30"  y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">orch</text>
+                <line x1="60" y1="26" x2="100" y2="26" stroke="var(--light)" stroke-width="1" stroke-dasharray="3,3"/>
+
+                <rect x="100" y="10" width="60" height="32" rx="4" fill="none" stroke="var(--light)" stroke-width="1"/>
+                <text x="130" y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">specialist</text>
+                <line x1="160" y1="26" x2="200" y2="26" stroke="var(--light)" stroke-width="1" stroke-dasharray="3,3"/>
+
+                <rect x="200" y="10" width="60" height="32" rx="4" fill="none" stroke="var(--aip-reject)" stroke-width="1"/>
+                <text x="230" y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-reject)">tool</text>
+                <path d="M218 18 l24 24 M242 18 l-24 24" stroke="var(--aip-reject)" stroke-width="1.5"/>
+
+                <text x="140" y="64" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-reject)" font-style="italic">who authorized this?</text>
+              </g>
+
+              <!-- WITH AIP -->
+              <text x="0" y="124" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--aip-identity)" letter-spacing="1.2">WITH AIP</text>
+              <g transform="translate(0,138)">
+                <rect x="0"   y="10" width="60" height="32" rx="4" fill="var(--aip-identity-tint)" stroke="var(--aip-identity)" stroke-width="1"/>
+                <text x="30"  y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-identity)">orch</text>
+                <line x1="60" y1="26" x2="96" y2="26" stroke="var(--aip-delegation)" stroke-width="1.5"/>
+                <circle cx="80" cy="26" r="3" fill="var(--aip-identity)"/>
+
+                <rect x="100" y="10" width="60" height="32" rx="4" fill="var(--aip-identity-tint)" stroke="var(--aip-identity)" stroke-width="1"/>
+                <text x="130" y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-identity)">specialist</text>
+                <line x1="160" y1="26" x2="196" y2="26" stroke="var(--aip-delegation)" stroke-width="1.5"/>
+                <circle cx="180" cy="26" r="3" fill="var(--aip-identity)"/>
+
+                <rect x="200" y="10" width="60" height="32" rx="4" fill="var(--aip-verify-tint)" stroke="var(--aip-verify)" stroke-width="1"/>
+                <text x="230" y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-verify)">tool</text>
+                <path d="M216 30 l6 6 l12 -12" stroke="var(--aip-verify)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+                <text x="140" y="64" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-verify)" font-style="italic">full chain audit</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
     <hr class="divider" />
 
     <!-- The fix -->
