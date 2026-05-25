@@ -74,7 +74,7 @@
             </div>
           </div>
           <div class="aip-hero__right">
-            <svg class="aip-hero__svg" viewBox="0 0 480 300" role="img" aria-labelledby="aip-hero-svg-title aip-hero-svg-desc">
+            <svg class="aip-hero__svg" viewBox="0 0 480 270" role="img" aria-labelledby="aip-hero-svg-title aip-hero-svg-desc">
               <title id="aip-hero-svg-title">AIP delegation chain</title>
               <desc id="aip-hero-svg-desc">Four nodes: User, Orchestrator, Research-analyst, Search Tool. A signed token flows from left to right. Scope narrows from two tools and five dollars to one tool and one dollar. The Search Tool node shows a green checkmark indicating successful verification.</desc>
 
@@ -109,27 +109,27 @@
                 <path d="M428 88 l6 6 l12 -12" stroke="var(--aip-verify)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               </g>
 
-              <!-- Scope chips and budget under ORCHESTRATOR -->
+              <!-- Scope chips and budget under ORCHESTRATOR, stacked so each chip fits its text -->
               <g class="aip-chips aip-chips--orch" transform="translate(124, 140)">
-                <rect x="0"  y="0" width="50" height="18" rx="9" fill="var(--aip-scope-tint)" stroke="var(--aip-scope)" stroke-width="1"/>
-                <text x="25" y="12" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">tool:search</text>
-                <rect x="54" y="0" width="44" height="18" rx="9" fill="var(--aip-scope-tint)" stroke="var(--aip-scope)" stroke-width="1"/>
-                <text x="76" y="12" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">tool:email</text>
-                <rect x="0" y="26" width="48" height="18" rx="9" fill="var(--bg)" stroke="var(--aip-scope)" stroke-width="1"/>
-                <text x="24" y="38" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">$5.00</text>
+                <rect x="2"  y="0"  width="80" height="18" rx="9" fill="var(--aip-scope-tint)" stroke="var(--aip-scope)" stroke-width="1"/>
+                <text x="42" y="12" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">tool:search</text>
+                <rect x="6"  y="22" width="72" height="18" rx="9" fill="var(--aip-scope-tint)" stroke="var(--aip-scope)" stroke-width="1"/>
+                <text x="42" y="34" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">tool:email</text>
+                <rect x="18" y="44" width="48" height="18" rx="9" fill="var(--bg)" stroke="var(--aip-scope)" stroke-width="1"/>
+                <text x="42" y="56" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">$5.00</text>
               </g>
 
-              <!-- Scope chips and budget under SPECIALIST (narrowed) -->
+              <!-- Scope chips and budget under SPECIALIST (narrowed: email scope dropped, budget shrunk) -->
               <g class="aip-chips aip-chips--rsch" transform="translate(268, 140)">
-                <rect x="0" y="0" width="50" height="18" rx="9" fill="var(--aip-scope-tint)" stroke="var(--aip-scope)" stroke-width="1"/>
-                <text x="25" y="12" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">tool:search</text>
-                <rect x="0" y="26" width="48" height="18" rx="9" fill="var(--bg)" stroke="var(--aip-scope)" stroke-width="1"/>
-                <text x="24" y="38" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">$1.00</text>
+                <rect x="2"  y="0"  width="80" height="18" rx="9" fill="var(--aip-scope-tint)" stroke="var(--aip-scope)" stroke-width="1"/>
+                <text x="42" y="12" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">tool:search</text>
+                <rect x="18" y="22" width="48" height="18" rx="9" fill="var(--bg)" stroke="var(--aip-scope)" stroke-width="1"/>
+                <text x="42" y="34" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--aip-scope)">$1.00</text>
               </g>
 
               <!-- Attenuation hairline -->
-              <line x1="166" y1="200" x2="310" y2="200" stroke="var(--aip-scope)" stroke-width="0.5" stroke-dasharray="2,2"/>
-              <text x="238" y="220" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)" font-style="italic">attenuates</text>
+              <line x1="166" y1="220" x2="310" y2="220" stroke="var(--aip-scope)" stroke-width="0.5" stroke-dasharray="2,2"/>
+              <text x="238" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)" font-style="italic">attenuates</text>
             </svg>
             <p class="aip-hero__caption"><span class="aip-hero__caption-comment">//</span> scope narrows at each hop <span class="aip-hero__caption-comment">·</span> chain verifies in 0.049 ms</p>
           </div>
