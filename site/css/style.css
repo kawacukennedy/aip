@@ -760,3 +760,36 @@ code {
   .aip-traction__inner { grid-template-columns: 1fr; }
   .aip-traction__item { border-left: none; padding-left: 0; }
 }
+
+/* ──── Shared section primitives ──────────────────────────────────────── */
+.aip-section { padding: 72px 0; }
+.aip-section__label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--aip-identity);
+  margin-bottom: 24px;
+}
+
+/* ──── Auth gap ───────────────────────────────────────────────────────── */
+.aip-authgap__grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 48px;
+  align-items: start;
+}
+
+.aip-authgap__copy p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.aip-authgap__svg-wrap { display: flex; justify-content: flex-end; }
+.aip-authgap__svg { width: 100%; max-width: 280px; height: auto; }
+
+@media (max-width: 900px) {
+  .aip-authgap__grid { grid-template-columns: 1fr; gap: 24px; }
+}
