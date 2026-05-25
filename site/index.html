@@ -64,45 +64,6 @@
       padding: 0;
       font-size: inherit;
     }
-    .install-cmd {
-      background: #1a1a1a;
-      color: #e8e8e8;
-      border: none;
-      font-family: var(--mono);
-      font-size: 14px;
-      padding: 14px 20px;
-      border-radius: 6px;
-      margin: 16px 0;
-    }
-    .install-cmd code { background: none; color: inherit; padding: 0; }
-    .framework-tabs {
-      display: flex;
-      gap: 0;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 0;
-    }
-    .framework-tab {
-      padding: 10px 20px;
-      font-family: var(--mono);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .framework-tab:hover { color: var(--text); }
-    .framework-tab.active {
-      color: var(--text);
-      border-bottom-color: var(--text);
-    }
-    .framework-panel {
-      display: none;
-      margin-top: 0;
-    }
-    .framework-panel.active { display: block; }
     .feature-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -383,68 +344,84 @@
       </div>
     </section>
     <hr class="divider" />
-
-    <!-- The fix -->
-    <div class="section">
+    <section class="aip-section aip-adopt">
       <div class="wrap">
-        <p class="section-label">The fix</p>
-        <p style="font-size: 17px; line-height: 1.7; max-width: 640px;">AIP gives every agent a cryptographic identity. A single token answers: who authorized this, through which agents, with what scope at each hop. No blockchain, no wallet UX. Ed25519 keys and append-only token chains.</p>
+        <p class="aip-section__label">The fix</p>
+        <p class="aip-adopt__lede">AIP gives every agent a cryptographic identity. Three ways to adopt, smallest change first:</p>
+        <ol class="aip-adopt__ways">
+          <li><strong class="aip-adopt__way">Drop-in proxy</strong> — point your MCP/A2A traffic at the AIP Gateway. No agent code change.</li>
+          <li><strong class="aip-adopt__way">Framework adapter</strong> — one-line setup for CrewAI, Google ADK, or LangChain.</li>
+          <li><strong class="aip-adopt__way">SDK</strong> — Python, Rust, or TypeScript; build identity in directly.</li>
+        </ol>
 
-        <div class="install-cmd"><code>pip install aip-agents[crewai]</code></div>
+        <div class="aip-install"><code>pip install aip-agents[crewai]</code></div>
 
-        <div class="framework-tabs">
-          <button class="framework-tab active" data-panel="crewai">CrewAI</button>
-          <button class="framework-tab" data-panel="adk">Google ADK</button>
-          <button class="framework-tab" data-panel="langchain">LangChain</button>
-          <button class="framework-tab" data-panel="core">Core SDK</button>
-        </div>
+        <div class="aip-tabs">
+          <div class="aip-tabs__bar" role="tablist">
+            <button class="aip-tabs__tab is-active" role="tab" data-panel="crewai">CrewAI</button>
+            <button class="aip-tabs__tab" role="tab" data-panel="adk">Google ADK</button>
+            <button class="aip-tabs__tab" role="tab" data-panel="langchain">LangChain</button>
+            <button class="aip-tabs__tab" role="tab" data-panel="ts">TypeScript</button>
+            <button class="aip-tabs__tab" role="tab" data-panel="core">Core SDK</button>
+          </div>
 
-        <div class="framework-panel active" id="panel-crewai">
-<pre><code>from aip_agents.adapters.crewai import CrewAIPlugin
+          <div class="aip-tabs__panel is-active" id="aip-panel-crewai" role="tabpanel">
+<pre class="aip-code"><code><span class="aip-code__cmt">#</span> python
+from aip_agents.adapters.crewai import CrewAIPlugin
 
-plugin = CrewAIPlugin(app_name="my-app")
-plugin.setup(crew)  # every agent gets a cryptographic identity
-headers = plugin.get_auth_headers("researcher")  # signed token for tool calls</code></pre>
-        </div>
+plugin = CrewAIPlugin(app_name=<span class="aip-code__str">"my-app"</span>)
+plugin.setup(crew)  <span class="aip-code__cmt"># every agent gets a cryptographic identity</span>
+headers = plugin.get_auth_headers(<span class="aip-code__str">"researcher"</span>)</code></pre>
+          </div>
 
-        <div class="framework-panel" id="panel-adk">
-<pre><code>from aip_agents.adapters.adk import ADKPlugin
+          <div class="aip-tabs__panel" id="aip-panel-adk" role="tabpanel">
+<pre class="aip-code"><code><span class="aip-code__cmt">#</span> python
+from aip_agents.adapters.adk import ADKPlugin
 
-plugin = ADKPlugin(app_name="my-app")
-plugin.setup(root_agent)  # walks the agent tree, assigns identities
-headers = plugin.get_auth_headers("specialist")</code></pre>
-        </div>
+plugin = ADKPlugin(app_name=<span class="aip-code__str">"my-app"</span>)
+plugin.setup(root_agent)
+headers = plugin.get_auth_headers(<span class="aip-code__str">"specialist"</span>)</code></pre>
+          </div>
 
-        <div class="framework-panel" id="panel-langchain">
-<pre><code>from aip_agents.adapters.langchain import LangChainPlugin
+          <div class="aip-tabs__panel" id="aip-panel-langchain" role="tabpanel">
+<pre class="aip-code"><code><span class="aip-code__cmt">#</span> python
+from aip_agents.adapters.langchain import LangChainPlugin
 
-plugin = LangChainPlugin(app_name="my-app")
-plugin.register(executor, name="researcher")
-headers = plugin.get_auth_headers("researcher")</code></pre>
-        </div>
+plugin = LangChainPlugin(app_name=<span class="aip-code__str">"my-app"</span>)
+plugin.register(executor, name=<span class="aip-code__str">"researcher"</span>)
+headers = plugin.get_auth_headers(<span class="aip-code__str">"researcher"</span>)</code></pre>
+          </div>
 
-        <div class="framework-panel" id="panel-core">
-<pre><code>from aip_core.crypto import KeyPair
+          <div class="aip-tabs__panel" id="aip-panel-ts" role="tabpanel">
+<pre class="aip-code"><code><span class="aip-code__cmt">//</span> typescript
+import { AIPLangChainPlugin } from <span class="aip-code__str">"@aip-sdk/agents"</span>;
+
+const plugin = new AIPLangChainPlugin();
+await plugin.register(agentExecutor, <span class="aip-code__str">"search-agent"</span>);
+const headers = await plugin.getToolCallHeaders(<span class="aip-code__str">"search-agent"</span>);</code></pre>
+          </div>
+
+          <div class="aip-tabs__panel" id="aip-panel-core" role="tabpanel">
+<pre class="aip-code"><code><span class="aip-code__cmt">#</span> python (core SDK)
+from aip_core.crypto import KeyPair
 from aip_token.claims import AipClaims
 from aip_token.compact import CompactToken
 import time
 
 kp = KeyPair.generate()
 claims = AipClaims(
-    iss="aip:key:ed25519:" + kp.public_key_multibase(),
-    sub="aip:web:example.com/tools/search",
-    scope=["tool:search"],
-    budget_usd=1.0,
-    max_depth=0,
-    iat=int(time.time()),
-    exp=int(time.time()) + 3600,
+    iss=<span class="aip-code__str">"aip:key:ed25519:"</span> + kp.public_key_multibase(),
+    sub=<span class="aip-code__str">"aip:web:example.com/tools/search"</span>,
+    scope=[<span class="aip-code__str">"tool:search"</span>],
+    budget_usd=1.0, max_depth=0,
+    iat=int(time.time()), exp=int(time.time()) + 3600,
 )
 token = CompactToken.create(claims, kp)
-headers = {"X-AIP-Token": token}</code></pre>
+headers = {<span class="aip-code__str">"X-AIP-Token"</span>: token}</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-
+    </section>
     <hr class="divider" />
 
     <!-- What you get -->
@@ -608,13 +585,14 @@ headers = {"X-AIP-Token": token}</code></pre>
   </footer>
 
   <script>
-    // Framework tabs
-    document.querySelectorAll('.framework-tab').forEach(tab => {
+    // AIP tabs
+    document.querySelectorAll('.aip-tabs__tab').forEach(tab => {
       tab.addEventListener('click', () => {
-        document.querySelectorAll('.framework-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.framework-panel').forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+        const tabs = tab.closest('.aip-tabs');
+        tabs.querySelectorAll('.aip-tabs__tab').forEach(t => t.classList.remove('is-active'));
+        tabs.querySelectorAll('.aip-tabs__panel').forEach(p => p.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        tabs.querySelector('#aip-panel-' + tab.dataset.panel).classList.add('is-active');
       });
     });
 
