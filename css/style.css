@@ -1038,3 +1038,32 @@ code {
 
 @media (max-width: 900px) { .aip-guides__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .aip-guides__grid { grid-template-columns: 1fr; } }
+
+/* ──── Research paper card ────────────────────────────────────────────── */
+.aip-paper-card {
+  border-left: 3px solid var(--aip-identity);
+  padding-left: 20px;
+  margin-left: -20px;
+}
+.aip-paper-card__pill {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 9px;
+  background: var(--aip-identity-tint);
+  color: var(--aip-identity);
+  margin: 0 4px;
+}
+.aip-stat {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.aip-stat--identity   { background: var(--aip-identity-tint);   color: var(--aip-identity); }
+.aip-stat--delegation { background: var(--aip-delegation-tint); color: var(--aip-delegation); }
+.aip-stat--scope      { background: var(--aip-scope-tint);      color: var(--aip-scope); }
+.aip-stat--verify     { background: var(--aip-verify-tint);     color: var(--aip-verify); }
