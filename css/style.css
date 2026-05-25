@@ -793,3 +793,104 @@ code {
 @media (max-width: 900px) {
   .aip-authgap__grid { grid-template-columns: 1fr; gap: 24px; }
 }
+
+/* ──── Adopt section + tabs ───────────────────────────────────────────── */
+.aip-adopt__lede {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 56ch;
+  margin-bottom: 16px;
+}
+
+.aip-adopt__ways {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  counter-reset: way;
+}
+.aip-adopt__ways li {
+  counter-increment: way;
+  position: relative;
+  padding: 10px 0 10px 36px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.aip-adopt__ways li:last-child { border-bottom: none; }
+.aip-adopt__ways li::before {
+  content: counter(way);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--aip-identity);
+  color: var(--aip-identity);
+  font-family: var(--mono);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.aip-adopt__way { color: var(--text); font-weight: 500; }
+
+.aip-install {
+  background: var(--aip-slate);
+  color: var(--bg);
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin: 24px 0;
+  font-family: var(--mono);
+  font-size: 14px;
+}
+.aip-install code::before {
+  content: "$ ";
+  color: var(--aip-identity);
+}
+.aip-install code { background: none; color: inherit; padding: 0; }
+
+.aip-tabs__bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+.aip-tabs__tab {
+  padding: 10px 20px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.aip-tabs__tab:hover { color: var(--text); }
+.aip-tabs__tab.is-active {
+  color: var(--aip-identity);
+  border-bottom-color: var(--aip-identity);
+}
+.aip-tabs__panel { display: none; }
+.aip-tabs__panel.is-active { display: block; }
+
+.aip-code {
+  background: var(--aip-slate);
+  color: #e8e8e8;
+  border: 1px solid var(--aip-slate-2);
+  border-radius: 6px;
+  border-top-left-radius: 0;
+  padding: 20px 24px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+.aip-code code { background: none; color: inherit; padding: 0; font-size: inherit; }
+.aip-code__cmt { color: #8a8a85; }
+.aip-code__str { color: #d3a47a; }
