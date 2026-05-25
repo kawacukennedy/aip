@@ -654,17 +654,6 @@ code {
   gap: 12px;
 }
 
-.aip-hero__svg-placeholder {
-  height: 300px;
-  border: 1px dashed var(--border);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--light);
-  font-family: var(--mono);
-  font-size: 13px;
-}
 
 .aip-hero__caption {
   font-family: var(--mono);
@@ -677,4 +666,10 @@ code {
 @media (max-width: 900px) {
   .aip-hero__grid { grid-template-columns: 1fr; gap: 32px; }
   .aip-hero__title { font-size: clamp(36px, 8vw, 48px); }
+}
+
+.aip-hero__svg {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
 }
