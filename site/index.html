@@ -222,20 +222,29 @@
   </nav>
 
   <main id="main-content">
-    <div class="page-hero">
+    <section class="aip-hero">
       <div class="wrap">
-        <p class="hero-label" style="font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px;">Open-source protocol</p>
-        <h1>Agent Identity Protocol</h1>
-        <p class="hero-sub">Your AI agents have no identity. AIP fixes that. Cryptographic delegation tokens for MCP and A2A, with scoped authorization and audit trails.</p>
-        <div class="hero-links" style="margin-top: 20px;">
-          <a href="/aip/quickstart/">Quickstart</a>
-          <a href="https://github.com/sunilp/aip" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://arxiv.org/abs/2603.24775" target="_blank" rel="noopener">Paper</a>
-          <a href="https://pypi.org/project/aip-agents/" target="_blank" rel="noopener">PyPI</a>
-          <a href="https://datatracker.ietf.org/doc/draft-prakash-aip/" target="_blank" rel="noopener">IETF Draft</a>
+        <div class="aip-hero__grid">
+          <div class="aip-hero__left">
+            <p class="aip-hero__pre">OPEN-SOURCE PROTOCOL <span class="aip-hero__pre-sep">·</span> IETF DRAFT-PRAKASH-AIP</p>
+            <h1 class="aip-hero__title">Agent <span class="aip-hero__title-accent">Identity</span><br/>Protocol.</h1>
+            <p class="aip-hero__sub">One token answers five questions: who authorized this, through which agents the delegation flowed, what scope applied at each hop, what happened, and whether it was independently verified.</p>
+            <div class="aip-hero__ctas">
+              <a class="aip-btn aip-btn--primary" href="/aip/quickstart/">Quickstart &rarr;</a>
+              <a class="aip-btn aip-btn--ghost" href="https://github.com/sunilp/aip" target="_blank" rel="noopener">GitHub</a>
+              <a class="aip-btn aip-btn--ghost" href="https://arxiv.org/abs/2603.24775" target="_blank" rel="noopener">Paper</a>
+              <a class="aip-btn aip-btn--ghost" href="https://pypi.org/project/aip-agents/" target="_blank" rel="noopener">PyPI</a>
+              <a class="aip-btn aip-btn--ghost" href="https://datatracker.ietf.org/doc/draft-prakash-aip/" target="_blank" rel="noopener">IETF</a>
+            </div>
+          </div>
+          <div class="aip-hero__right">
+            <!-- SVG goes here in Task 4 -->
+            <div class="aip-hero__svg-placeholder" aria-hidden="true">[delegation diagram]</div>
+            <p class="aip-hero__caption"><span class="aip-hero__caption-comment">//</span> scope narrows at each hop <span class="aip-hero__caption-comment">·</span> chain verifies in 0.049 ms</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <hr class="divider" />
 
