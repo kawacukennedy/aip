@@ -974,3 +974,23 @@ code {
 @media (max-width: 900px) {
   .aip-delegate__svg { overflow-x: auto; }
 }
+
+/* ──── Integrations ───────────────────────────────────────────────────── */
+.aip-integrations__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.aip-chip {
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  background: var(--bg);
+}
+.aip-integrations__row--secondary .aip-chip {
+  color: var(--muted);
+}
