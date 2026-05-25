@@ -673,3 +673,31 @@ code {
   height: auto;
   max-height: 320px;
 }
+
+/* Compact hero SVG animation. Triggered by JS adding .is-animating. */
+.aip-hero__svg .aip-node {
+  opacity: 0;
+}
+.aip-hero__svg.is-animating .aip-node--user  { animation: aipFadeIn 0.3s 0.0s ease forwards; }
+.aip-hero__svg.is-animating .aip-node--orch  { animation: aipFadeIn 0.3s 0.2s ease forwards; }
+.aip-hero__svg.is-animating .aip-node--rsch  { animation: aipFadeIn 0.3s 0.4s ease forwards; }
+.aip-hero__svg.is-animating .aip-node--tool  { animation: aipFadeIn 0.3s 0.6s ease forwards; }
+
+.aip-hero__svg .aip-chips {
+  opacity: 0;
+}
+.aip-hero__svg.is-animating .aip-chips--orch { animation: aipFadeIn 0.4s 1.4s ease forwards; }
+.aip-hero__svg.is-animating .aip-chips--rsch { animation: aipFadeIn 0.4s 2.4s ease forwards; }
+
+@keyframes aipFadeIn {
+  to { opacity: 1; }
+}
+
+/* Reduced motion: skip animation, render final state. */
+@media (prefers-reduced-motion: reduce) {
+  .aip-hero__svg .aip-node,
+  .aip-hero__svg .aip-chips {
+    opacity: 1;
+    animation: none !important;
+  }
+}

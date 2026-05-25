@@ -555,6 +555,22 @@ headers = {"X-AIP-Token": token}</code></pre>
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     }
+
+    // Compact hero SVG animation trigger
+    const heroSvg = document.querySelector('.aip-hero__svg');
+    if (heroSvg && 'IntersectionObserver' in window) {
+      const heroObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-animating');
+            heroObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      heroObs.observe(heroSvg);
+    } else if (heroSvg) {
+      heroSvg.classList.add('is-animating');
+    }
   </script>
 </body>
 </html>
