@@ -543,3 +543,26 @@ code {
   .nav-links { gap: 12px; }
   .nav-links a { font-size: 12px; }
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   AIP page redesign — semantic tokens (scoped to /aip/index.html and any
+   future page that opts in). All variables prefixed --aip-* to avoid
+   collision with shared --text/--bg etc. that other /aip/ subpages use.
+   ════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Semantic palette */
+  --aip-identity:        #9b4a3f;
+  --aip-identity-tint:   #f5e8e5;
+  --aip-delegation:      #2c5f8f;
+  --aip-delegation-tint: #e6edf3;
+  --aip-scope:           #b8860b;
+  --aip-scope-tint:      #f5ecd4;
+  --aip-verify:          #4a7c59;
+  --aip-verify-tint:     #e6efe8;
+  --aip-reject:          #a8362d;
+
+  /* Surfaces */
+  --aip-slate:           #1a1a1a;
+  --aip-slate-2:         #2a2a28;
+}
