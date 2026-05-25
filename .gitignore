@@ -39,3 +39,6 @@ docs/superpowers/
 
 # Example keys (never commit private material)
 examples/a2a-multi-agent/keys/
+
+# Site build artifacts (generated at deploy time)
+site/_build/
