@@ -994,3 +994,47 @@ code {
 .aip-integrations__row--secondary .aip-chip {
   color: var(--muted);
 }
+
+/* ──── Guides ─────────────────────────────────────────────────────────── */
+.aip-guides__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 24px 0 32px;
+}
+.aip-guide {
+  border: 1px solid var(--border);
+  border-top-width: 2px;
+  border-radius: 4px;
+  padding: 24px;
+  transition: border-top-width 0.2s, border-color 0.2s;
+}
+.aip-guide:hover { border-top-width: 4px; }
+.aip-guide--c1 { border-top-color: var(--aip-identity); }
+.aip-guide--c2 { border-top-color: var(--aip-delegation); }
+.aip-guide--c3 { border-top-color: var(--aip-scope); }
+.aip-guide--c4 { border-top-color: var(--aip-verify); }
+
+.aip-guide h4 {
+  font-family: var(--heading);
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+.aip-guide p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 12px;
+  line-height: 1.55;
+}
+.aip-guide a {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--aip-identity);
+}
+
+.aip-guides__more { font-size: 14px; color: var(--muted); }
+.aip-guides__more a { color: var(--aip-identity); border-bottom: 1px solid var(--aip-identity-tint); padding-bottom: 1px; }
+
+@media (max-width: 900px) { .aip-guides__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .aip-guides__grid { grid-template-columns: 1fr; } }
