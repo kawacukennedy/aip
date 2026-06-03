@@ -117,7 +117,8 @@ Identity documents MUST conform to the following structure:
   },
   "extensions": {
     "ldp": "aip:web:jamjet.dev/agents/research-analyst#ldp",
-    "oauth": { "issuer": "https://auth.jamjet.dev", "client_id": "research-analyst" }
+    "oauth": { "issuer": "https://auth.jamjet.dev", "client_id": "research-analyst" },
+    "erc8004": { "chain_id": 84532, "address": "0xA1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B0" }
   },
   "document_signature": "<Ed25519 signature of canonical document by key-1>",
   "expires": "2026-06-22T00:00:00Z"
@@ -150,7 +151,7 @@ Identity documents MUST conform to the following structure:
 | `revocation` | object | OPTIONAL | Revocation configuration. |
 | `revocation.endpoint` | string | OPTIONAL | URL for the revocation list. MUST be HTTPS. |
 | `revocation.method` | string | OPTIONAL | Revocation method. MUST be `"crl"` in v1. CRL format is deferred to v2. |
-| `extensions` | object | OPTIONAL | Extension fields for LDP, OAuth, or any future protocol. |
+| `extensions` | object | OPTIONAL | Extension fields for LDP, OAuth, ERC-8004, or any future protocol. |
 | `document_signature` | string | REQUIRED | Ed25519 signature over the canonical document (see Section 4). |
 | `expires` | string | REQUIRED | ISO 8601 UTC timestamp. The document MUST NOT be trusted after this time. |
 
@@ -271,7 +272,7 @@ The `aip` field in identity documents uses a `major.minor` format (e.g., `"1.0"`
 ## 7. Design Decisions
 
 1. **Ed25519 only for v1.** Fast, small signatures, widely supported. No algorithm negotiation complexity.
-2. **Extensions field.** LDP, OAuth, or any future protocol can link here without polluting the core schema.
+2. **Extensions field.** LDP, OAuth, ERC-8004, or any future protocol can link here without polluting the core schema.
 3. **Expires field.** Forces rotation. No permanent identities.
 4. **Multiple keys with validity windows.** Enables zero-downtime key rotation.
 5. **Document self-signature.** Protects against domain compromise. HTTPS authenticates the transport; the signature authenticates the content.

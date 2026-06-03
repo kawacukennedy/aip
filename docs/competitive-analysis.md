@@ -123,6 +123,24 @@ No identity flows across MCP and A2A protocol boundaries:
 
 **AIP relationship:** Enterprises already running SPIFFE can use SPIFFE SVIDs as the root credential in AIP Block 0.
 
+### ERC-8004 (Kuberna Labs)
+
+**Status:** Draft EIP, active development. Testnet deployments on Ethereum Sepolia, Base Sepolia, Polygon Amoy, Arbitrum Sepolia.
+
+**Strengths:**
+- On-chain agent identity registry (Ethereum/EVM)
+- Delegation chains recorded on-chain for auditability
+- Compatible with standard Ethereum tooling (wagmi, ethers, viem)
+- Cross-chain via CCIP/LayerZero read
+
+**Limitations:**
+- Ethereum-only (EVM chains), no native support for non-EVM agents
+- On-chain verification costs gas
+- No protocol bindings for MCP/A2A/HTTP
+- Not designed for ephemeral/off-chain agent interactions
+
+**AIP relationship:** ERC-8004 and AIP are complementary. AIP provides lightweight off-chain agent identity and delegation for agent-to-agent protocol calls (MCP, A2A, HTTP). ERC-8004 provides an on-chain registry for agent discoverability, on-chain settlement, and permanent audit trails. An AIP identity document can include an `erc8004` extension linking to an agent's on-chain registration, and an ERC-8004 delegation can reference an AIP token's scope as off-chain context. The two protocols layer naturally: AIP for the fast path, ERC-8004 for the durable record.
+
 ### Other Emerging Projects
 
 | Project | Focus | Gap |
@@ -130,6 +148,7 @@ No identity flows across MCP and A2A protocol boundaries:
 | Mastercard Verifiable Intent | Crypto audit trail for agent commerce | Commerce-only |
 | AstraCipher | DID + VC SDK for agents (post-quantum) | New, no adoption |
 | OpenAgents AgentID | W3C DID for agents | Platform-coupled |
+| Kuberna Labs ERC-8004 | On-chain agent identity & delegation registry | Ethereum-only, needs bridging to agent protocols |
 
 ## Token Format Comparison
 
