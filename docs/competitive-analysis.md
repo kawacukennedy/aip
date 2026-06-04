@@ -125,7 +125,7 @@ No identity flows across MCP and A2A protocol boundaries:
 
 ### ERC-8004 (Kuberna Labs)
 
-**Status:** Draft EIP, active development. Testnet deployments on Ethereum Sepolia, Base Sepolia, Polygon Amoy, Arbitrum Sepolia.
+**Status:** Draft EIP, active development [ERC-8004]. Testnet deployments on Ethereum Sepolia, Base Sepolia, Polygon Amoy, Arbitrum Sepolia.
 
 **Strengths:**
 - On-chain agent identity registry (Ethereum/EVM)
@@ -139,7 +139,7 @@ No identity flows across MCP and A2A protocol boundaries:
 - No protocol bindings for MCP/A2A/HTTP
 - Not designed for ephemeral/off-chain agent interactions
 
-**AIP relationship:** ERC-8004 and AIP are complementary. AIP provides lightweight off-chain agent identity and delegation for agent-to-agent protocol calls (MCP, A2A, HTTP). ERC-8004 provides an on-chain registry for agent discoverability, on-chain settlement, and permanent audit trails. An AIP identity document can include an `erc8004` extension linking to an agent's on-chain registration, and an ERC-8004 delegation can reference an AIP token's scope as off-chain context. The two protocols layer naturally: AIP for the fast path, ERC-8004 for the durable record.
+**AIP relationship:** ERC-8004 [ERC-8004] and AIP are complementary. AIP provides lightweight off-chain agent identity and delegation for agent-to-agent protocol calls (MCP, A2A, HTTP). ERC-8004 provides an on-chain registry for agent discoverability, on-chain settlement, and permanent audit trails. An AIP identity document can include an `erc8004` extension linking to an agent's on-chain registration, and an ERC-8004 delegation can reference an AIP token's scope as off-chain context. The two protocols layer naturally: AIP for the fast path, ERC-8004 for the durable record.
 
 ### Other Emerging Projects
 
@@ -220,3 +220,4 @@ Single token answers: "Who authorized this? Through which agents? With what scop
 - [Okta: Agent Delegation Chain Security](https://www.okta.com/blog/ai/agent-security-delegation-chain/)
 - [AI Agent Identity Crisis (Strata)](https://www.strata.io/blog/agentic-identity/the-ai-agent-identity-crisis-new-research-reveals-a-governance-gap/)
 - [Knostic MCP Server Security Scan](https://ragaboutit.com/the-ai-agent-identity-crisis-why-mcps-security-gap-threatens-your-enterprise-rag-system/)
+- [ERC-8004: Agent Identity & Delegation Registry (Kuberna Labs)](https://eip.ethereum.org/EIPS/eip-8004)

@@ -125,6 +125,47 @@ Identity documents MUST conform to the following structure:
 }
 ```
 
+### 3.2.1 Extensions: ERC-8004
+
+When the identity document includes an `erc8004` entry in the `extensions` object, the following normative rules apply:
+
+```json
+{
+  "extensions": {
+    "erc8004": {
+      "chain_id": 84532,
+      "address": "0xA1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B0",
+      "metadata": { "name": "Agent Research Analyst", "delegation_depth": 3 }
+    }
+  }
+}
+```
+
+**`extensions.erc8004` schema:**
+
+| Field | Type | Required | Validation |
+|---|---|---|---|
+| `chain_id` | integer | REQUIRED | Positive integer representing an EVM chain ID (EIP-155). MUST be a valid chain ID per the [EIP-155 chain list](https://chainlist.org). |
+| `address` | string | REQUIRED | 20-byte Ethereum address as a hex string with `0x` prefix. MUST match `/^0x[a-fA-F0-9]{40}$/`. Implementations MAY reject addresses that fail EIP-55 checksum validation. |
+| `metadata` | object | OPTIONAL | Freeform key-value object for additional agent metadata. No constraints on structure beyond valid JSON. |
+
+**Validation rules:**
+
+1. If `extensions.erc8004` is present, `chain_id` and `address` MUST both be present.
+2. The `chain_id` MUST be a positive integer (`chain_id > 0`).
+3. The `address` MUST be exactly 42 characters (0x prefix + 40 hex digits).
+4. Unknown keys inside the `extensions.erc8004` object SHOULD be ignored (forward compatibility).
+5. Producers SHOULD use EIP-55 mixed-case checksum addresses; consumers MAY validate the checksum.
+
+**Extension semantics:**
+
+The `erc8004` extension links an AIP identity document to an on-chain agent identity registered via ERC-8004. When present, verifiers MAY additionally check that:
+
+- A contract at `address` on chain `chain_id` holds an active ERC-8004 identity record.
+- The public key in the AIP identity document matches the key registered on-chain (if ERC-8004 registration includes an AIP key binding).
+
+This extension is OPTIONAL. AIP identity documents are valid with or without it.
+
 ### 3.2 Field Definitions
 
 | Field | Type | Required | Description |
